@@ -1,8 +1,6 @@
-# PoSynDA: Multi-Hypothesis Pose Synthesis Domain Adaptation for Enhanced 3D Human Pose Estimation
+# PoSynDA: Multi-Hypothesis Pose Synthesis Domain Adaptation for Robust 3D Human Pose Estimation
 
-The PyTorch implementation for ["PoSynDA: Multi-Hypothesis Pose Synthesis Domain Adaptation for Enhanced 3D Human Pose Estimation"].
-<p align="center"><img src="fig/overview.jpg", width="600" alt="" /></p>
-<p align="center"><img src="fig/demo.gif", width="600"  alt="" /></p>
+The PyTorch implementation for ["PoSynDA: Multi-Hypothesis Pose Synthesis Domain Adaptation for Robust 3D Human Pose Estimation"].
 
 
 ## Dependencies
