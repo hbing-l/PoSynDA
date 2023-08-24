@@ -35,8 +35,11 @@ You should download [MATLAB](https://www.mathworks.com/products/matlab-online.ht
 
 ## Dataset Preparation
 
+Our model is evaluated on [Human3.6M](http://vision.imar.ro/human3.6m) and [MPI-INF-3DHP](https://vcai.mpi-inf.mpg.de/3dhp-dataset/) datasets. 
+
 - **Human3.6M**: [Instructions and processed data link](./data/Human3.6M/README.md)
 - **MPI-INF-3DHP**: [Instructions and processed data link](./data/MPI-INF-3DHP/README.md)
+
 
 ## Training
 
@@ -44,14 +47,16 @@ To train the PoSynDA model on your dataset, run:
 
 ```
 python train.py --config path_to_config_file
+
 ```
+
 
 ## Evaluation
 
-For evaluation on the provided datasets:
+For evaluation of the provided datasets. h36m_transfer.py is the code to transfer H36M S1 to S5, S6, S7, S8, and h36m_3dhp_transfer.py is the code to transfer H36M dataset to 3DHP dataset.
 
 ```
-python evaluate.py --config path_to_config_file
+python evaluation.py --config path_to_config_file
 ```
 
 ## Results
@@ -75,7 +80,7 @@ If you find this work useful for your research, please consider citing our paper
 
 ## Acknowledgments
 
-We would like to thank all the contributors and researchers who made this project possible.
+We would like to thank all the following contributors and researchers who made this project possible.
 * [VideoPose3D](https://github.com/facebookresearch/VideoPose3D)
 * [DiffusionDet](https://github.com/ShoufaChen/DiffusionDet)
 * [MixSTE](https://github.com/JinluZhang1126/MixSTE)
@@ -94,18 +99,8 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 
 
-### Human3.6M
-
-We set up the Human3.6M dataset in the same way as [VideoPose3D](https://github.com/facebookresearch/VideoPose3D/blob/master/DATASETS.md).  You can download the processed data from [here](https://drive.google.com/file/d/1FMgAf_I04GlweHMfgUKzB0CMwglxuwPe/view?usp=sharing).  `data_2d_h36m_gt.npz` is the ground truth of 2D keypoints. `data_2d_h36m_cpn_ft_h36m_dbb.npz` is the 2D keypoints obatined by [CPN](https://github.com/GengDavid/pytorch-cpn).  `data_3d_h36m.npz` is the ground truth of 3D human joints. Put them in the `./data` directory.
 
 
-### MPI-INF-3DHP
-
-We set up the MPI-INF-3DHP dataset following [P-STMO](https://github.com/paTRICK-swk/P-STMO). However, our training/testing data is different from theirs. They train and evaluate on 3D poses scaled to the height of the universal skeleton used by Human3.6M (officially called "univ_annot3"), while we use the ground truth 3D poses (officially called "annot3"). The former does not guarantee that the reprojection (used by the proposed JPMA) of the rescaled 3D poses is consistent with the 2D inputs, while the latter does. You can download our processed data from [here](https://drive.google.com/file/d/1zOM_CvLr4Ngv6Cupz1H-tt1A6bQPd_yg/view?usp=share_link). Put them in the `./data` directory. 
-
-## Evaluate
-
-h36m_transfer.py is the code to transfer H36M S1 to S5, S6, S7, S8, and h36m_3dhp_transfer.py is the code to transfer H36M dataset to 3DHP dataset.
 
 
 
