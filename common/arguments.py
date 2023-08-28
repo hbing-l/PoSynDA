@@ -20,9 +20,9 @@ def parse_args():
                         help='unlabeled subjects separated by comma for self-supervision')
     parser.add_argument('-a', '--actions', default='*', type=str, metavar='LIST',
                         help='actions to train/test on, separated by comma, or * for all')
-    parser.add_argument('-c', '--checkpoint', default='D3DP/checkpoint/model_3dhp_transfer2', type=str, metavar='PATH',
+    parser.add_argument('-c', '--checkpoint', default='./checkpoint/', type=str, metavar='PATH',
                         help='checkpoint directory')
-    parser.add_argument('-l', '--log', default='D3DP/log/default', type=str, metavar='PATH',
+    parser.add_argument('-l', '--log', default='./log/default', type=str, metavar='PATH',
                         help='log file directory')
     parser.add_argument('-cf','--checkpoint-frequency', default=20, type=int, metavar='N',
                         help='create a checkpoint every N epochs')
@@ -37,7 +37,7 @@ def parse_args():
 
     # Model arguments
     parser.add_argument('-s', '--stride', default=243, type=int, metavar='N', help='chunk size to use during training')
-    parser.add_argument('-e', '--epochs', default=400, type=int, metavar='N', help='number of training epochs')
+    parser.add_argument('-e', '--epochs', default=40, type=int, metavar='N', help='number of training epochs')
     parser.add_argument('-b', '--batch-size', default=4, type=int, metavar='N', help='batch size in terms of predicted frames')
     parser.add_argument('-drop', '--dropout', default=0., type=float, metavar='P', help='dropout probability')
     parser.add_argument('-lr', '--learning-rate', default=0.00006, type=float, metavar='LR', help='initial learning rate')

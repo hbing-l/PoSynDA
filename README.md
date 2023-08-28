@@ -38,25 +38,25 @@ You should download [MATLAB](https://www.mathworks.com/products/matlab-online.ht
 Our model is evaluated on [Human3.6M](http://vision.imar.ro/human3.6m) and [MPI-INF-3DHP](https://vcai.mpi-inf.mpg.de/3dhp-dataset/) datasets. 
 
 - **Human3.6M**: [Instructions and processed data link](./data/Human3.6M/README.md)
-- **MPI-INF-3DHP**: [Instructions and processed data link](./data/MPI-INF-3DHP/README.md)
+- **MPI-INF-3DHP**: [Instructions and processed data link](./data/3DHP/README.md)
 
 
 ## Training
 
-To train the PoSynDA model on your dataset, run:
+h36m_transfer.py is the code to transfer H36M S1 to S5, S6, S7, S8, and h36m_3dhp_transfer.py is the code to transfer H36M dataset to 3DHP dataset. To train the PoSynDA model on the target dataset (e.g. 3DHP), run:
 
 ```
-python train.py --config path_to_config_file
+python h36m_3dhp_transfer.py -k cpn_ft_h36m_dbb -num_proposals 3 -timestep 1000 -c checkpoint/ -gpu 0 --nolog
 
 ```
 
 
 ## Evaluation
 
-For evaluation of the provided datasets. h36m_transfer.py is the code to transfer H36M S1 to S5, S6, S7, S8, and h36m_3dhp_transfer.py is the code to transfer H36M dataset to 3DHP dataset.
+For evaluation of the provided model. 
 
 ```
-python evaluation.py --config path_to_config_file
+python h36m_3dhp_transfer.py -c checkpoint -gpu 0 --nolog --evaluate best_epoch.bin
 ```
 
 ## Results
